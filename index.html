@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6f1d2b">
+  <meta name="description" content="منصة معهد القديس ديديموس للمرتلين للتعلم والألحان والمواد التعليمية.">
+  <title>معهد القديس ديديموس للمرتلين</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">تجاوز إلى المحتوى</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="التنقل الرئيسي">
+      <a class="brand" href="#home" aria-label="الصفحة الرئيسية">
+        <img src="logo.png" alt="شعار معهد القديس ديديموس" width="52" height="52">
+        <span><strong>معهد القديس ديديموس</strong><small>منصة تعليم المرتلين</small></span>
+      </a>
+      <div class="nav-caption">القائمة الرئيسية</div>
+      <nav class="primary-nav">
+        <button class="nav-item active" data-view="home"><span class="nav-icon">⌂</span>الرئيسية</button>
+        <button class="nav-item" data-view="curriculum"><span class="nav-icon">▤</span>المناهج الدراسية</button>
+        <button class="nav-item" data-view="chants"><span class="nav-icon">♫</span>مكتبة الألحان</button>
+        <button class="nav-item" data-view="results"><span class="nav-icon">◷</span>النتائج</button>
+        <button class="nav-item" data-view="enrollment"><span class="nav-icon">＋</span>الالتحاق بالمعهد</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="offline-card"><span class="status-dot" id="connection-dot"></span><div><strong id="connection-label">جارٍ فحص الاتصال</strong><small id="connection-detail">حالة المنصة</small></div></div>
+        <button class="nav-item" data-view="admin"><span class="nav-icon">⚙</span>إدارة المحتوى</button>
+        <button class="nav-item" id="theme-toggle"><span class="nav-icon">◐</span>الوضع الليلي</button>
+        <div class="sidebar-foot">بدير السيدة العذراء مريم المحرق العامر</div>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <button class="icon-button menu-toggle" id="menu-toggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+        <div class="breadcrumbs"><span>معهد القديس ديديموس</span><b>/</b><strong id="breadcrumb-current">الرئيسية</strong></div>
+        <div class="top-actions">
+          <button class="icon-button" id="install-button" hidden aria-label="تثبيت التطبيق" title="تثبيت التطبيق">⇩</button>
+          <button class="icon-button" id="notifications-button" aria-label="الإعلانات والتنبيهات" title="الإعلانات">♢<i class="notification-dot" id="notification-dot" hidden></i></button>
+          <button class="profile-button" id="profile-button"><span class="avatar" id="avatar">ز</span><span class="profile-copy"><strong id="profile-name">زائر</strong><small id="profile-role">تصفح المواد المتاحة</small></span><span class="chevron">⌄</span></button>
+        </div>
+      </header>
+
+      <main id="main-content" tabindex="-1">
+        <section class="view active" id="view-home" aria-labelledby="welcome-title">
+          <div class="welcome-panel">
+            <div class="welcome-copy">
+              <div class="eyebrow"><span class="cross-mark">✝</span> بِاسمِ الآبِ والابنِ والرّوحِ القُدُس</div>
+              <h1 id="welcome-title">أهلاً بك في <span>معهد القديس ديديموس</span></h1>
+              <p>مساحة واحدة لمناهج المرتلين والألحان والمواد التعليمية.</p>
+              <button class="button button-light" data-go="curriculum">استكشف المناهج <span>←</span></button>
+            </div>
+            <div class="welcome-seal"><img src="logo.png" alt="" aria-hidden="true"></div>
+            <div class="welcome-ornament" aria-hidden="true">✣</div>
+          </div>
+
+          <form class="home-search" id="global-search-form"><label class="search-box"><span>⌕</span><input id="global-search" type="search" placeholder="ابحث في الدروس والألحان والمواد" aria-label="بحث عام في المنصة"></label><button class="button button-primary" type="submit">بحث</button></form>
+          <div class="content-panel global-search-results" id="global-search-results" hidden></div>
+
+          <div class="notice-strip" id="backend-notice" role="status">
+            <span class="notice-icon">ⓘ</span><div><strong>وضع التصفح المحلي</strong><p>قاعدة البيانات وتسجيل الدخول والمزامنة غير مهيأة بعد. ما تحفظه على هذا الجهاز لا ينتقل إلى أجهزة أخرى.</p></div>
+            <button class="text-button" data-go="admin">تفاصيل الإعداد</button>
+          </div>
+
+          <div class="section-heading"><div><span class="eyebrow">مسار التعلّم</span><h2>أقسام المعهد</h2></div><button class="text-button" data-go="curriculum">عرض المناهج <span>←</span></button></div>
+          <div class="level-grid" id="home-levels"></div>
+
+          <div class="feature-grid">
+            <button class="feature-card feature-melody" data-go="chants"><span class="feature-symbol">♫</span><span class="feature-text"><small>اسمع وتعلّم</small><strong>مكتبة الألحان الكنسية</strong><span>الألحان والتسابيح والردود</span></span><span class="feature-arrow">←</span></button>
+            <button class="feature-card feature-results" data-go="results"><span class="feature-symbol">◷</span><span class="feature-text"><small>متابعة دراسية</small><strong>النتائج والإنجاز</strong><span>النتائج الشخصية تتطلب تسجيل الدخول</span></span><span class="feature-arrow">←</span></button>
+            <button class="feature-card feature-join" data-go="enrollment"><span class="feature-symbol">＋</span><span class="feature-text"><small>ابدأ رحلتك</small><strong>التقديم والالتحاق</strong><span>معلومات القبول والتواصل</span></span><span class="feature-arrow">←</span></button>
+          </div>
+
+          <div class="section-heading section-heading-tight"><div><span class="eyebrow">إعلانات المعهد</span><h2>آخر الإعلانات</h2></div></div>
+          <div id="home-announcements" class="announcement-list"></div>
+          <div class="section-heading section-heading-tight"><div><span class="eyebrow">متابعة شخصية</span><h2>تعلّمي على هذا الجهاز</h2></div></div>
+          <div class="personal-grid" id="personal-summary"></div>
+        </section>
+
+        <section class="view" id="view-curriculum" aria-labelledby="curriculum-title">
+          <div class="page-intro"><span class="eyebrow">المواد الدراسية</span><h1 id="curriculum-title">المناهج الدراسية</h1><p>اختر الفرقة لعرض المواد والدروس والملفات المتاحة.</p></div>
+          <div class="toolbar"><label class="search-box"><span>⌕</span><input id="curriculum-search" type="search" placeholder="ابحث في المناهج والدروس" aria-label="ابحث في المناهج والدروس"></label><select id="term-filter" aria-label="تصفية حسب الفصل الدراسي"><option value="">كل الفصول الدراسية</option></select><select id="type-filter" aria-label="تصفية حسب نوع المحتوى"><option value="">كل أنواع المحتوى</option><option value="pdf">PDF</option><option value="audio">صوت</option><option value="video">فيديو</option><option value="image">صورة</option><option value="link">رابط</option><option value="text">نص وملاحظات</option></select></div>
+          <div class="tab-row" id="level-tabs" role="tablist" aria-label="الفرق الدراسية"></div>
+          <div class="content-panel" id="curriculum-content"></div>
+        </section>
+
+        <section class="view" id="view-chants" aria-labelledby="chants-title">
+          <div class="page-intro page-intro-row"><div><span class="eyebrow">صوت التسبيح</span><h1 id="chants-title">مكتبة الألحان الكنسية</h1><p>مصدر الملفات وحالة الوصول يظهران بوضوح لكل مادة.</p></div><button class="button button-outline" id="drive-status-button">ربط Google Drive</button></div>
+          <div class="notice-strip notice-muted" id="drive-notice"><span class="notice-icon">ⓘ</span><div><strong>تكامل Google Drive غير مهيأ</strong><p>لن تظهر ملفات من Drive قبل ربط واجهة آمنة والتحقق من صلاحيات الوصول.</p></div></div>
+          <div class="toolbar"><label class="search-box"><span>⌕</span><input id="chant-search" type="search" placeholder="ابحث عن لحن أو تسبيحة" aria-label="ابحث في مكتبة الألحان"></label><select id="chant-category-filter" aria-label="تصفية حسب التصنيف"><option value="">كل التصنيفات</option></select></div>
+          <div class="category-chips" id="chant-categories"></div>
+          <div class="content-panel" id="chants-content"></div>
+        </section>
+
+        <section class="view" id="view-results" aria-labelledby="results-title">
+          <div class="page-intro"><span class="eyebrow">السجل الدراسي</span><h1 id="results-title">النتائج والإنجاز</h1><p>النتائج لا تظهر إلا بعد تسجيل الدخول بحساب الطالب المعتمد.</p></div>
+          <div id="results-content" class="content-panel"></div>
+          <div class="progress-section"><div class="section-heading"><div><span class="eyebrow">على هذا الجهاز</span><h2>تقدم الدروس</h2></div></div><div id="progress-content"></div></div>
+        </section>
+
+        <section class="view" id="view-enrollment" aria-labelledby="enrollment-title">
+          <div class="page-intro"><span class="eyebrow">رحلتك في الترتيل</span><h1 id="enrollment-title">الالتحاق بالمعهد</h1><p>تُحدّث بيانات القبول والتواصل من إدارة المنصة عند ربطها بقاعدة البيانات.</p></div>
+          <div class="enrollment-grid"><article class="content-panel enrollment-panel"><div class="panel-icon">✣</div><h2>التقديم للدراسة</h2><p class="muted-copy" id="admission-copy">لا توجد تعليمات قبول منشورة حالياً. يُرجى التواصل مع إدارة المعهد للحصول على المواعيد والشروط المعتمدة.</p><div class="empty-state compact" id="admission-empty"><span>⌑</span><strong>لم تُضف شروط الالتحاق بعد</strong><p>ستظهر هنا الخطوات والمواعيد الرسمية بعد نشرها من الإدارة.</p></div></article><article class="content-panel contact-panel"><div class="panel-icon">✉</div><h2>تواصل مع المعهد</h2><p class="muted-copy">تظهر فقط بيانات التواصل التي تعتمدها إدارة المعهد.</p><div class="contact-placeholder"><span>☎</span><div><strong>الهاتف</strong><small id="contact-phone">غير منشور</small></div></div><div class="contact-placeholder"><span>✉</span><div><strong>البريد الإلكتروني</strong><small id="contact-email">غير منشور</small></div></div><div class="contact-placeholder"><span>⌖</span><div><strong>العنوان</strong><small id="contact-address">دير السيدة العذراء مريم المحرق العامر</small></div></div></article></div>
+        </section>
+
+        <section class="view" id="view-admin" aria-labelledby="admin-title">
+          <div class="page-intro"><span class="eyebrow">إدارة المنصة</span><h1 id="admin-title">إدارة المحتوى</h1><p>إعدادات الربط وحالة الخدمات المتاحة في هذه النسخة.</p></div>
+          <div id="admin-content"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>✝</span><div><strong>معهد القديس ديديموس للمرتلين</strong><small>«رتّلوا للرب ترنيمة جديدة»</small></div><span class="footer-place">بدير المحرق العامر</span></footer>
+    </div>
+  </div>
+  <nav class="mobile-nav" aria-label="التنقل السريع"><button class="mobile-nav-item active" data-view="home"><span>⌂</span>الرئيسية</button><button class="mobile-nav-item" data-view="curriculum"><span>▤</span>المناهج</button><button class="mobile-nav-item" data-view="chants"><span>♫</span>الألحان</button><button class="mobile-nav-item" data-view="results"><span>◷</span>النتائج</button><button class="mobile-nav-item" data-view="enrollment"><span>＋</span>الالتحاق</button></nav>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <dialog class="modal" id="auth-modal"><form method="dialog" class="modal-card" id="auth-form"><button class="modal-close" aria-label="إغلاق">×</button><img class="modal-logo" src="logo.png" alt=""><span class="eyebrow">حساب المعهد</span><h2>تسجيل الدخول</h2><p id="auth-message" class="muted-copy">يتطلب تسجيل الدخول إعداد قاعدة بيانات المنصة.</p><label class="field-label">البريد الإلكتروني<input id="auth-email" type="email" autocomplete="email" required></label><label class="field-label">كلمة المرور<input id="auth-password" type="password" autocomplete="current-password" required></label><button class="button button-primary" id="auth-submit" type="submit">دخول</button><p class="form-footnote">لا ترسل بيانات الدخول ما لم تُفعّل قاعدة البيانات الآمنة.</p></form></dialog>
+  <dialog class="modal" id="lesson-modal"><div class="modal-card lesson-modal-card"><button class="modal-close" data-close="lesson-modal" aria-label="إغلاق">×</button><div id="lesson-detail"></div></div></dialog>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>

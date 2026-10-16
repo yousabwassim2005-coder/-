@@ -1,0 +1,15 @@
+{
+  "name": "معهد القديس ديديموس للمرتلين",
+  "short_name": "معهد ديديموس",
+  "description": "منصة تعليمية للمرتلين والألحان الكنسية",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f6f3",
+  "theme_color": "#6f1d2b",
+  "icons": [
+    { "src": "logo.png", "sizes": "any", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
